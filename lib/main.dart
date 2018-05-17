@@ -48,28 +48,36 @@ class _MyAppState extends State<MyApp> {
                       new TextEditingValue(text: barcode)),
                   style: Theme.of(context).textTheme.body2,
                   decoration: new InputDecoration(
-                    hintText: 'aqui os dados.',
-                    labelText: "Código lido",
+                    hintText: 'aqui ficará o código encontrado.',
+                    labelText: "QRcode",
                     labelStyle: Theme.of(context).textTheme.display1,
                     contentPadding: new EdgeInsets.all(8.0),
                   ),
                 ),
                 new Divider(),
-                new RaisedButton(
-                  color: Colors.amberAccent,
-                  child: new Text("Copiar"),
-                  onPressed: () {
-                    Clipboard.setData(new ClipboardData(text: barcode));
-                    this._scaffoldKey.currentState.showSnackBar(snackBar);
-                  },
+                new Container(
+                  width: 330.0,
+                  height: 40.0,
+                  child: new RaisedButton(
+                    color: Colors.amberAccent,
+                    child: new Text("Copiar"),
+                    onPressed: () {
+                      Clipboard.setData(new ClipboardData(text: barcode));
+                      this._scaffoldKey.currentState.showSnackBar(snackBar);
+                    },
+                  ),
                 ),
                 new Divider(),
-                new RaisedButton(
-                  color: Colors.amberAccent,
-                  child: new Text("Limpar"),
-                  onPressed: () {
-                    setState(() => barcode = "");
-                  },
+                new Container(
+                  width: 330.0,
+                  height: 40.0,
+                  child: new RaisedButton(
+                    color: Colors.amberAccent,
+                    child: new Text("Limpar"),
+                    onPressed: () {
+                      setState(() => barcode = "");
+                    },
+                  ),
                 ),
               ],
             ),
