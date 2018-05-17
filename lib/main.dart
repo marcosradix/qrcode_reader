@@ -14,8 +14,10 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   String barcode = "";
-  final snackBar = new SnackBar(content: new Text("Texto copiado com sucesso!"),);
-  final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState> ();
+  final snackBar = new SnackBar(
+    content: new Text("Texto copiado com sucesso!"),
+  );
+  final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
   @override
   initState() {
     super.initState();
@@ -25,7 +27,7 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return new MaterialApp(
       home: new Scaffold(
-        key: this._scaffoldKey,
+          key: this._scaffoldKey,
           appBar: new AppBar(
             backgroundColor: Colors.amberAccent,
             title: new Text('Leitor QRCODE'),
@@ -60,7 +62,15 @@ class _MyAppState extends State<MyApp> {
                     Clipboard.setData(new ClipboardData(text: barcode));
                     this._scaffoldKey.currentState.showSnackBar(snackBar);
                   },
-                )
+                ),
+                new Divider(),
+                new RaisedButton(
+                  color: Colors.amberAccent,
+                  child: new Text("Limpar"),
+                  onPressed: () {
+                    setState(() => barcode = "");
+                  },
+                ),
               ],
             ),
           )),
