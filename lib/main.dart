@@ -92,13 +92,13 @@ class _MyAppState extends State<MyApp> {
     } on PlatformException catch (e) {
       if (e.code == BarcodeScanner.CameraAccessDenied) {
         setState(() {
-          this.barcode = 'Usuário não concedeu permissão para a camera';
+          this.barcode = 'Usuário não concedeu permissão para a câmera';
         });
       } else {
         setState(() => this.barcode = 'Unknown error: $e');
       }
     } on FormatException {
-      setState(() => this.barcode = '(Não foi possível ler o QRCode)');
+      setState(() => this.barcode = '(Não foi possível ler o código)');
     } catch (e) {
       setState(() => this.barcode = 'Unknown error: $e');
     }
